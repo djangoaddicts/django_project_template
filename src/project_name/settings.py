@@ -43,7 +43,6 @@ INTERNAL_IPS = env.str("INTERNAL_IPS", "127.0.0.1").split(",")
 
 
 # Application definition
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -92,7 +91,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "handyhelpers.context_processors.base_template",
+                "handyhelpers.context_processors.get_settings",
             ],
         },
     },
@@ -182,6 +181,8 @@ REQUIRED_LOGIN_IGNORE_PATHS = [
     "/admin/",
     "/admin/login/",
 ]
+PROJECT_NAME = "{{ project_name }}"
+PROJECT_VERSION = env.str("PROJECT_VERSION", "0.0.1")
 
 
 # logging configuration
